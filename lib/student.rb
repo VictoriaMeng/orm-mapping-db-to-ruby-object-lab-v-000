@@ -80,8 +80,12 @@ class Student
   end
 
   def self.first_X_students_in_grade_10(x)
-    sql = "SELECT id FROM students"
-    DB[:conn].execute(sql).map do |name|
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE id >= ?
+    SQL
+    DB[:conn].execute(sql, x).map do |name|
     end
   end
 end
