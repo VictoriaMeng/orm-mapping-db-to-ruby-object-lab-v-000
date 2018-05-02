@@ -24,11 +24,10 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     sql = <<-SQL
-      SELECT name
+      SELECT *
       FROM students
       WHERE name = ?
     SQL
-    binding.pry
     DB[:conn].execute(sql, name)[0][0]
   end
 
