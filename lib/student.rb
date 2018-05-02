@@ -74,6 +74,7 @@ class Student
       FROM students
       WHERE grade < ?
     SQL
-    DB[:conn].execute(sql, "12")
+    DB[:conn].execute(sql, "12").map do |row|
+    end
   end
 end
