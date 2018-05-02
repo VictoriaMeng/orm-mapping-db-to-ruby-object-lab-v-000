@@ -108,6 +108,7 @@ class Student
       WHERE grade = ?
     SQL
     DB[:conn].execute(sql, x).map do |name|
+      self.find_by_name(name)
     end
   end
 end
